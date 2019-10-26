@@ -1,32 +1,38 @@
 'use strict';
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Indecision App'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'this is some info'
-    ),
-    React.createElement(
-        'ol',
+var visibility = false;
+
+var toggleVisibility = function toggleVisibility() {
+    visibility = !visibility;
+    render();
+};
+
+var render = function render() {
+    var jsx = React.createElement(
+        'div',
         null,
         React.createElement(
-            'li',
+            'h1',
             null,
-            'List one'
+            'Visibility!'
         ),
         React.createElement(
-            'li',
+            'button',
+            { onClick: toggleVisibility },
+            visibility ? 'hide detail' : 'show detail'
+        ),
+        visibility && React.createElement(
+            'div',
             null,
-            'List two '
+            React.createElement(
+                'p',
+                null,
+                'Hey. These are some detail you can now see!'
+            )
         )
-    )
-);
-var appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+    );
+
+    ReactDOM.render(jsx, document.getElementById('app'));
+};
+
+render();
