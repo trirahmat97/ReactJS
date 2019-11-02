@@ -4,6 +4,17 @@ const app = {
     option: []
 }
 
+    // constructor(props){
+    //     super(props);
+    //     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+    //     this.handleDeleteOption = this.handleDeleteOption.bind(this);
+    //     this.handlePick = this.handlePick.bind(this);
+    //     this.handleAddOption = this.handleAddOption.bind(this);
+    //     this.state = {
+    //         options: []
+    //     }
+    // }
+
 const onFormSubmit = (e) => {
     e.preventDefault();
     const option = e.target.elements.option.value;
